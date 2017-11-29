@@ -1,4 +1,4 @@
-![https://www.python.org/static/img/python-logo.png](Python.org logo)
+![Python.org logo](https://www.python.org/static/img/python-logo.png)
 
 # python
 * [Python.org](https://www.python.org)
