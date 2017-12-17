@@ -49,9 +49,22 @@ NumPy, SciPy, Matplotlib, PyWin32, Django, PIL, wxPython, PyQt, PyGame, etc. cod
 *	Python_intro.ppt
 *	Python_tutorial.ppt > 47/51 : NLTK module : natural language processing
 *	python1.ppt > cf fin exos o	 http://docs.python.org/tutorial/
-*	An Informal Introduction to Python
+   *	An Informal Introduction to Python
 *	chapt5.ppt Python Programming: An Introduction to Computer Science
 
 ## Courses
 * http://www.python-course.eu/lambda.php
 * Linear Algebra https://www.howtoforge.com/tutorial/vector-algebra-on-scientific-linux-with-python/
+* Regular Expressions : http://www.diveintopython.org/regular_expressions/index.html
+   *  http://www.amk.ca/python/howto/regex/regex.html
+
+<br>
+* [University of Pennsylvania School of Engineering and Applied Science](http://www.upenn.edu/)
+   * CSC 9010 NLP
+   www.csc.villanova.edu/~nlp/
+   * CSE391 (Introduction to Artificial Intelligence): http://www.cis.upenn.edu/~bonnie/
+   http://course.cmjnu.com.cn/courses/03014a/content/ckzl/resources/edu/CSE391.htm
+
+   ftp://ftp.cis.upenn.edu/pub/cse391/public_html
+   ftp://ftp.cis.upenn.edu/pub/cis530/public_html/materials/
+   http://coweb.cc.gatech.edu/mediaComp-teach/48
