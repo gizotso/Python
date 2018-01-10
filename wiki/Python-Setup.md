@@ -1,8 +1,96 @@
 # Python Setup
 
 ## Env
-* PATH
+The minimum is to add to the **PATH** the location of the python.exe program.
+Depending on the chosen Python distribution, additional setup can be useful.
+
 PATH : C:\Python34\;C:\Python34\Scripts;
+
+### WinPython
+[WinPython](https://winpython.github.io/)
+
+```
+<WinPython Dir>
+├── notebooks
+├── scripts
+    └── env.bat
+    └── cmd.bat
+	  └── python.bat
+	  └── spyder.bat
+└── settings
+    └── winpython.ini
+└── tools
+    └── 7z.exe, pandox.exe
+└── python-3.4.3                    < %WINPYDIR% or %PYTHONHOME% >
+    └── python.exe, pythonw.exe
+    └── Lib                         < %PYTHONPATH% >
+    └── Scripts
+	     └── pip.exe, easyinstall.exe, ...
+├── Spyder.exe, Qt Designer.exe
+├── "WinPython Interpreter.exe", "WinPython Command Prompt.exe"
+```
+
+Launching Python intpreter from "WinPython Interpreter.exe" launch the env (%WINPYDIR%/scripts/env.bat, python.bat).
+
+This sets WINPYDIR, WINPYVER, WINPYARCH, ... variables and adds entries to the PATH :
+- WINPYDIR: T:\PortableApps\Python\WinPython-32bit-3.4.3.5\python-3.4.3
+  <=> PYTHONHOME
+- WINPYVER: 3.4.3.5
+```
+set PATH=
+%WINPYDIR%\Lib\site-packages\PyQt5;
+%WINPYDIR%\Lib\site-packages\PyQt4;
+%WINPYDIR%\;
+%WINPYDIR%\DLLs;
+%WINPYDIR%\Scripts;
+%WINPYDIR%\..\tools;
+%WINPYDIR%\..\tools\mingw32\bin;
+%WINPYDIR%\..\tools\R\bin\i386;
+%WINPYDIR%\..\tools\Julia\bin;
+%PATH%;
+```
+
+Running directly the python.exe under %PYTHONHOME% will not set anything
+
+### Python launcher
+python34.bat
+```
+:: wrapper for Python 3.4 : set Python 3.4 environment and run Python (Cmd prompt)
+@echo off
+call %~dp0set_py34.bat
+%PYTHONHOME%\python.exe %*
+```
+
+```
+@echo off
+set _DRIVE=%~d0
+:: WinPython Directory (different than WINPYDIR which is equivalent to PYTHONPATH)
+set WINPYTHONDIR=%_DRIVE%\PortableApps\Python\WinPython-32bit-3.4.3.5
+::set HOME=%WINPYTHONDIR%\settings
+SET PYTHONHOME=%WINPYTHONDIR%\python-3.4.3
+SET PYTHONPATH=%WINPYTHONDIR%\python-3.4.3\Lib
+SET WINPYVER=3.4.3
+SET PYTHONSTARTUP=%_DRIVE%\PortableApps\Scripts\Python\startup_py3.py
+:: add to PATH :
+SET PATH=%PYTHONHOME%;%PYTHONHOME%\Scripts;%PYTHONPATH%\site-packages\PyQt4;%PATH%
+SET PATH=%_DRIVE%\PortableApps\Python\Scripts;%PATH%
+```
+
+### Python environment
+https://www.tutorialspoint.com/python/python_environment.htm
+
+PYTHONHOME: Alternate prefix directory (or prefix:exec_prefix). The default module search path uses prefix/lib
+
+
+```python
+import os
+os.getenv('WINPYVER')
+os.getenv('WINPYDIR')
+
+import sys
+if "C:\\My_Python_Lib" not in sys.path:
+    sys.path.append("C:\\My_Python_Lib")
+```
 
 ### Windows File association
 add .py |.pyw to %PATHEXT%
@@ -18,6 +106,7 @@ ftype Python.File="C:\Windows\py.exe" "%1" %*
 cf utility in windows to set file association
 * http://defaultprogramseditor.com/
 
+
 ## Python Startup
 
 PySCripter  /PyScripter/python_init.py
@@ -26,8 +115,12 @@ from python
 from __future__ import print_function
 ```
 
+### PythonStartup variable
 set PYTHONSTARTUP PYTHONSTARTUP=/path/to/init.py (works for interactive sessions)
 
+If this is the name of a readable file, the Python commands in that file are executed before the first prompt is displayed in interactive mode (no default).
+
+### site.py
 - T:\PortableApps\Python\Python2.7.6.1\App\Lib\site-packages\site.py
    - sitecustomize.py
    - usercustomize.py
@@ -53,14 +146,43 @@ with a prefix, e.g.::
 * http://stackoverflow.com/questions/11404165/python-startup-script
 
 
-## Python IDE
+# Python IDE
 
 Komodo, NetBeans, Python Tools for Visual Studio – an add-on for Microsoft Visual Studio, PyStudio, PyDev – an open-source plug-in for Eclipse
 
-### Python IDLE (Integrated DevLopment  Env)
+## Spyder
+
+## PyScripter
+Using PySCripter with Unregistered/Portable Python
+PyScripter 2.6 working with Python up to 3.4
+
+- https://sourceforge.net/projects/pyscripter/
+- https://sourceforge.net/p/pyscripter/wiki/FAQ/
+   - How do I use PyScripter with Portable (Movable) Python?
+- https://github.com/pyscripter/pyscripter/wiki/Features
+
+```
+SET PYTHONHOME=E:\PortablePython
+PyScripter --PYTHON25 --PYTHONDLLPATH "E:\PortablePython" %1 %2 %3 %4 %5
+```
+The %PYTHONHOME% environment variable is required but not used by PyScripter directly but by Python to find the installed libraries.
+
+PyScripter launcher
+```
+@echo off
+call %~dp0set_py34.bat
+%DRIVE%\PortableApps\Python\PyScripter\PyScripter.exe --PYTHON34 --PYTHONDLLPATH %PYTHONHOME%
+```
+### PyScripter.ini
+lookup under
+1) Exe directory
+2) %APPDATA% (environment varaible)
+3) %APPDATA%\Pyscripter
+
+## Python IDLE (Integrated DevLopment  Env)
 ![IDLE](./img/PythonIDLE.png)
 Pour ouvrir IDLE, distribué dans la distribution standart de Python, il suffit d'exécuter le fichier <PYTHONHOME>/lib/idlelib/idle.pyw
-See alsopython2.7.6.1/App/Lib/dlelib/dle.bat
+See also /python2.7.6.1/App/Lib/dlelib/dle.bat
 ```
 set CURRDIR=%~dp0
 start "IDLE" "%CURRDIR%..\..\pythonw.exe" "%CURRDIR%idle.pyw" %1 %2 %3 %4 %5 %6 %7 %8 %9
@@ -74,6 +196,8 @@ IDLE can be launched from the python prompt
 * http://stackoverflow.com/questions/118260/how-to-start-idle-python-editor-without-using-the-shortcut-on-windows-vista
 *	http://stackoverflow.com/questions/2345607/starting-python-idle-from-command-line-to-edit-scripts
 *	http://askubuntu.com/questions/337395/open-python-file-with-idle-using-terminal-on-ubuntu-12-04
+
+
 
 # Python Package Mgmt
 https://packaging.python.org/tutorials/installing-packages/
