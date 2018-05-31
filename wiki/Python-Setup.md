@@ -76,7 +76,7 @@ SET PATH=%PYTHONHOME%;%PYTHONHOME%\Scripts;%PYTHONPATH%\site-packages\PyQt4;%PAT
 SET PATH=%_DRIVE%\PortableApps\Python\Scripts;%PATH%
 ```
 
-### Python environment
+### Python Environment
 https://www.tutorialspoint.com/python/python_environment.htm
 
 PYTHONHOME: Alternate prefix directory (or prefix:exec_prefix). The default module search path uses prefix/lib
