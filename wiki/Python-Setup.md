@@ -201,6 +201,7 @@ IDLE can be launched from the python prompt
 
 # Python Package Mgmt
 https://packaging.python.org/tutorials/installing-packages/
+https://github.com/winpython/winpython/wiki/Installing-Additional-Packages
 
 ## pip
 a command-line package management system
