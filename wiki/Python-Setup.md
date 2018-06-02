@@ -75,6 +75,7 @@ SET PYTHONSTARTUP=%_DRIVE%\PortableApps\Scripts\Python\startup_py3.py
 SET PATH=%PYTHONHOME%;%PYTHONHOME%\Scripts;%PYTHONPATH%\site-packages\PyQt4;%PATH%
 SET PATH=%_DRIVE%\PortableApps\Python\Scripts;%PATH%
 ```
+https://github.com/winpython/winpython/issues/351
 
 ### Python Environment
 https://www.tutorialspoint.com/python/python_environment.htm
