@@ -1,6 +1,6 @@
 ![Python.org logo](https://www.python.org/static/img/python-logo.png)
 
-# python
+# Python
 * [Python.org](https://www.python.org)
 * [Doc on python.org](https://www.python.org/doc/)
 * [Wiki](https://wiki.python.org/moin/)
@@ -58,7 +58,15 @@ NumPy, SciPy, Matplotlib, PyWin32, Django, PIL, wxPython, PyQt, PyGame, etc. cod
 * Regular Expressions : http://www.diveintopython.org/regular_expressions/index.html
    *  http://www.amk.ca/python/howto/regex/regex.html
 
-<br>
+
+# References
+* [apprendre-python.com](http://apprendre-python.com)
+* [Python For Data Science - A Cheat Sheet For Beginners](https://www.datacamp.com/community/tutorials/python-data-science-cheat-sheet-basics/#gs.52XWzPQ)
+* [Pandas Cheat Sheet for Data Science in Python](https://www.datacamp.com/community/blog/python-pandas-cheat-sheet#gs.oMfJwow)
+* [DZone Core Python](https://dzone.com/refcardz/core-python)
+
+* http://cs231n.github.io/python-numpy-tutorial/
+
 * [University of Pennsylvania School of Engineering and Applied Science](http://www.upenn.edu/)
    * CSC 9010 NLP
    www.csc.villanova.edu/~nlp/
