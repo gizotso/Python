@@ -4,7 +4,15 @@
 The minimum is to add to the **PATH** the location of the python.exe program.
 Depending on the chosen Python distribution, additional setup can be useful.
 
-PATH : C:\Python34\;C:\Python34\Scripts;
+With a WinPython distribution, adding the install location and the script to the PATH will be a goood way to set minimum env variables.
+Indeed, when invoking python from the cmd line, windows lookup will find first python.bat which itself call env.bat and set additional env variables for python.
+
+* <WinPython Dir>: WinPython Command Prompt.exe, Jupyter Notebook.exe, ...
+* <WinPython Dir>\scripts: python.bat, env.bat, cmd.bat, winspyder.bat
+```
+PATH : C:\Python34\;C:\Python34\scripts;
+```
+
 
 ### WinPython
 [WinPython](https://winpython.github.io/)
