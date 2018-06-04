@@ -1,16 +1,15 @@
 # Python Setup
 
 ## Env
-The minimum is to add to the **PATH** the location of the python.exe program. (%PYTHONHOME%)
+The minimum is to add to the **%PATH%** the location of the python.exe program. (%PYTHONHOME%)
 Depending on the chosen Python distribution, additional setup can be useful.
 
-
-
+This can be done in Windows user environment variables or dynamically through batch file scripts.
 
 ### WinPython
 [WinPython](https://winpython.github.io/)
 
-With a WinPython distribution, adding the install location and the script to the PATH will be a goood way to set minimum env variables.
+With a WinPython distribution, adding the install location and the script to the PATH could be a simple way to set minimum env variables.
 Indeed, when invoking python from the cmd line, windows lookup will find first python.bat which itself call env.bat and set additional env variables for python.
 
 * <WinPython Dir>: WinPython Command Prompt.exe, Jupyter Notebook.exe, ...
@@ -47,6 +46,7 @@ This sets WINPYDIR, WINPYVER, WINPYARCH, ... variables and adds entries to the P
   <=> PYTHONHOME
 - WINPYVER: 3.4.3.5
 
+<WinPython Dir>\scripts\env.bat
 ```
 set PATH=
 %WINPYDIR%\Lib\site-packages\PyQt5;
@@ -61,17 +61,18 @@ set PATH=
 %PATH%;
 ```
 
-Running directly the python.exe under %PYTHONHOME% will not set anything
+Note: Running directly the python.exe under %PYTHONHOME% will not set anything
 
 ### Python launcher
 python34.bat
 ```
 :: wrapper for Python 3.4 : set Python 3.4 environment and run Python (Cmd prompt)
 @echo off
-call %~dp0set_py34.bat
+call %~dp0set_py.bat 3.4
 %PYTHONHOME%\python.exe %*
 ```
 
+set_py.bat
 ```
 @echo off
 set _DRIVE=%~d0
