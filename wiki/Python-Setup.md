@@ -117,8 +117,8 @@ cf utility in windows to set file association
 
 
 ## Python Startup
-
-PySCripter  /PyScripter/python_init.py
+### PyScripter
+PySCripter  %PyScripterDir%/python_init.py
 ```
 from python
 from __future__ import print_function
@@ -162,19 +162,20 @@ Komodo, NetBeans, Python Tools for Visual Studio – an add-on for Microsoft Vis
 ## Spyder
 
 ## PyScripter
-Using PySCripter with Unregistered/Portable Python
-PyScripter 2.6 working with Python up to 3.4
+PyScriper can run with Unregistered/Portable Python.
+
+PyScripter 2.6 is working with Python up to 3.4
 
 - https://sourceforge.net/projects/pyscripter/
 - https://sourceforge.net/p/pyscripter/wiki/FAQ/
    - How do I use PyScripter with Portable (Movable) Python?
 - https://github.com/pyscripter/pyscripter/wiki/Features
 
+PyScripter launcher
 ```
-SET PYTHONHOME=E:\PortablePython
+SET PYTHONHOME=E:\PortablePython25
 PyScripter --PYTHON25 --PYTHONDLLPATH "E:\PortablePython" %1 %2 %3 %4 %5
 ```
-The %PYTHONHOME% environment variable is required but not used by PyScripter directly but by Python to find the installed libraries.
 
 PyScripter launcher
 ```
@@ -182,6 +183,17 @@ PyScripter launcher
 call %~dp0set_py34.bat
 %DRIVE%\PortableApps\Python\PyScripter\PyScripter.exe --PYTHON34 --PYTHONDLLPATH %PYTHONHOME%
 ```
+
+PyScripter.bat to be used as a ShortCut (cmd terminal opened and closed)
+```
+@echo off
+set PYTHONHOME=C:\Tools\Python\WinPython-64bit-3.5.2.3\python-3.5.2.amd64
+PyScripter.exe --PYTHON35 --PYTHONDLLPATH "%PYTHONHOME%" %*
+```
+
+The %PYTHONHOME% environment variable is required but not used by PyScripter directly but by Python to find the installed libraries.
+
+
 ### PyScripter.ini
 lookup under
 1) Exe directory
