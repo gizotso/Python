@@ -191,6 +191,19 @@ set PYTHONHOME=C:\Tools\Python\WinPython-64bit-3.5.2.3\python-3.5.2.amd64
 start PyScripter.exe --PYTHON35 --PYTHONDLLPATH "%PYTHONHOME%" %*
 ```
 
+```
+:: PyScripter launcher to set WinPython from current directory and start PyScripter IDE
+:: location %WinPythonDir%\scripts\PyScripter.bat
+@echo off
+::@echo on
+:: call the env.bat avaialble with WinPython (%WinPythonDir%\scripts). This sets the %PYTHONHOME% env variable
+call "%~dp0env_for_icons.bat"
+::echo %PYTHONHOME%
+set PyScripterDir=C:\Tools\Python\PyScripter-v3.1-64b
+::start PyScripter.exe --PYTHON35 --PYTHONDLLPATH %PYTHONHOME%
+start %PyScripterDir%\PyScripter.exe --PYTHON35 --PYTHONDLLPATH "%PYTHONHOME%" %*
+```
+
 The %PYTHONHOME% environment variable is required but not used by PyScripter directly but by Python to find the installed libraries.
 
 
