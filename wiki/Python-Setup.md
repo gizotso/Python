@@ -1,8 +1,14 @@
 # Python Setup
 
 ## Env
-The minimum is to add to the **PATH** the location of the python.exe program.
+The minimum is to add to the **PATH** the location of the python.exe program. (%PYTHONHOME%)
 Depending on the chosen Python distribution, additional setup can be useful.
+
+
+
+
+### WinPython
+[WinPython](https://winpython.github.io/)
 
 With a WinPython distribution, adding the install location and the script to the PATH will be a goood way to set minimum env variables.
 Indeed, when invoking python from the cmd line, windows lookup will find first python.bat which itself call env.bat and set additional env variables for python.
@@ -10,12 +16,8 @@ Indeed, when invoking python from the cmd line, windows lookup will find first p
 * <WinPython Dir>: WinPython Command Prompt.exe, Jupyter Notebook.exe, ...
 * <WinPython Dir>\scripts: python.bat, env.bat, cmd.bat, winspyder.bat
 ```
-PATH : C:\Python34\;C:\Python34\scripts;
+PATH: C:\Python34\;C:\Python34\scripts;
 ```
-
-
-### WinPython
-[WinPython](https://winpython.github.io/)
 
 ```
 <WinPython Dir>
@@ -44,6 +46,7 @@ This sets WINPYDIR, WINPYVER, WINPYARCH, ... variables and adds entries to the P
 - WINPYDIR: T:\PortableApps\Python\WinPython-32bit-3.4.3.5\python-3.4.3
   <=> PYTHONHOME
 - WINPYVER: 3.4.3.5
+
 ```
 set PATH=
 %WINPYDIR%\Lib\site-packages\PyQt5;
