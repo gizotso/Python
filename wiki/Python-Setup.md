@@ -205,6 +205,9 @@ set PYTHONHOME=%WINPYDIR%
 set PyScripterDir=T:\PortableApps\Python\PyScripter
 ::start PyScripter.exe --PYTHON35 --PYTHONDLLPATH %PYTHONHOME%
 start /b %PyScripterDir%\PyScripter.exe --PYTHON34 --PYTHONDLLPATH "%PYTHONHOME%" %*
+:: >>>
+:: import os
+:: os.getenv('PYTHONPATH')
 ```
 
 The %PYTHONHOME% environment variable is required but not used by PyScripter directly but by Python to find the installed libraries.
