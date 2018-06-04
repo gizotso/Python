@@ -184,11 +184,11 @@ call %~dp0set_py34.bat
 %DRIVE%\PortableApps\Python\PyScripter\PyScripter.exe --PYTHON34 --PYTHONDLLPATH %PYTHONHOME%
 ```
 
-PyScripter.bat to be used as a ShortCut (cmd terminal opened and closed)
+<%PyScripterDir%>\PyScripter.bat to be used as a ShortCut (cmd terminal opened and closed)
 ```
 @echo off
 set PYTHONHOME=C:\Tools\Python\WinPython-64bit-3.5.2.3\python-3.5.2.amd64
-PyScripter.exe --PYTHON35 --PYTHONDLLPATH "%PYTHONHOME%" %*
+start PyScripter.exe --PYTHON35 --PYTHONDLLPATH "%PYTHONHOME%" %*
 ```
 
 The %PYTHONHOME% environment variable is required but not used by PyScripter directly but by Python to find the installed libraries.
