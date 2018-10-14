@@ -12,34 +12,38 @@ This can be done in Windows user environment variables or dynamically through ba
 With a WinPython distribution, adding the install location and the script to the PATH could be a simple way to set minimum env variables.
 Indeed, when invoking python from the cmd line, windows lookup will find first python.bat which itself call env.bat and set additional env variables for python.
 
-* <WinPython Dir>: WinPython Command Prompt.exe, Jupyter Notebook.exe, ...
-* <WinPython Dir>\scripts: python.bat, env.bat, cmd.bat, winspyder.bat
+* <WinPython Base Dir>: WinPython Command Prompt.exe, Jupyter Notebook.exe, ...
+* <WinPython Base Dir>\scripts: python.bat, env.bat, cmd.bat, winspyder.bat
 ```
 PATH: C:\Python34\;C:\Python34\scripts;
 ```
 
 ```
-<WinPython Dir>
+<WinPython Install Dir >
+├── "WinPython Interpreter.exe", "WinPython Command Prompt.exe"
+├── Spyder.exe, Qt Designer.exe
 ├── notebooks
 ├── scripts
     └── env.bat
     └── cmd.bat
 	  └── python.bat
 	  └── spyder.bat
-└── settings
+└── settings                        < %HOME% >
     └── winpython.ini
 └── tools
-    └── 7z.exe, pandox.exe
-└── python-3.4.3                    < %WINPYDIR% or %PYTHONHOME% >
+    └── 7z.exe, pandoc.exe          +%PATH%
+└── python-3.4.3                    < %PYTHONHOME% = %WINPYDIR%  >
     └── python.exe, pythonw.exe
     └── Lib                         < %PYTHONPATH% >
-    └── Scripts
-	     └── pip.exe, easyinstall.exe, ...
-├── Spyder.exe, Qt Designer.exe
-├── "WinPython Interpreter.exe", "WinPython Command Prompt.exe"
+    └── DLLs                          
+    └── Scripts                     +%PATH%
+	     └── spyder.exe, pip.exe, pip3.exe, easyinstall.exe, ...
+
 ```
 
-Launching Python intpreter from "WinPython Interpreter.exe" launch the env (%WINPYDIR%/scripts/env.bat, python.bat).
+Launching Python intpreter from exe file "WinPython Interpreter.exe" launch the env (%WINPYDIR%/scripts/env.bat, python.bat).
+* "WinPython Interpreter.exe" -> ./scripts/winpython.bat
+* "WinPython Command Prompt" -> ./scripts/python.bat
 
 This sets WINPYDIR, WINPYVER, WINPYARCH, ... variables and adds entries to the PATH :
 - WINPYDIR: T:\PortableApps\Python\WinPython-32bit-3.4.3.5\python-3.4.3
@@ -61,7 +65,7 @@ set PATH=
 %PATH%;
 ```
 
-Note: Running directly the python.exe under %PYTHONHOME% will not set anything
+**Note:** Running directly the python.exe under %PYTHONHOME% will not set anything
 
 ### Python launcher
 python34.bat
@@ -76,11 +80,11 @@ set_py.bat
 ```
 @echo off
 set _DRIVE=%~d0
-:: WinPython Directory (different than WINPYDIR which is equivalent to PYTHONPATH)
-set WINPYTHONDIR=%_DRIVE%\PortableApps\Python\WinPython-32bit-3.4.3.5
-::set HOME=%WINPYTHONDIR%\settings
-SET PYTHONHOME=%WINPYTHONDIR%\python-3.4.3
-SET PYTHONPATH=%WINPYTHONDIR%\python-3.4.3\Lib
+:: WinPython Install Base Directory (different than WINPYDIR which is equivalent to PYTHONPATH)
+set WinPythonDirBase=%_DRIVE%\PortableApps\Python\WinPython-32bit-3.4.3.5
+::set HOME=%WinPythonDirBase%\settings
+SET PYTHONHOME=%WinPythonDirBase%\python-3.4.3
+SET PYTHONPATH=%WinPythonDirBase%\python-3.4.3\Lib
 SET WINPYVER=3.4.3
 SET PYTHONSTARTUP=%_DRIVE%\PortableApps\Scripts\Python\startup_py3.py
 :: add to PATH :

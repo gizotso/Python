@@ -206,10 +206,16 @@ pip install py2exe
 
 
 # help
-help()
+`help()` : Returns the python built in documentation about the object.
 help> modules / keywords / topics
 
+```
 help("modules")
+```
+
+`dir()` Returns the attributes of the object or module
+
+`__doc__` Returns the doc-string of object or module.
 
 # Pypedia : Python env on a wiki “Python sandbox”
 http://www.pypedia.com/
