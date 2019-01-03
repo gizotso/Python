@@ -220,3 +220,5 @@ help("modules")
 # Pypedia : Python env on a wiki “Python sandbox”
 http://www.pypedia.com/
 Collaborative programming web env for the open science. Each article is a python function or class !
+
+https://repl.it/languages
